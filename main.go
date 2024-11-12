@@ -156,6 +156,8 @@ func main() {
 
 		all_bs := make([]string, len(t.Fields))
 		var e error
+		fmt.Println("BEGIN TRANSACTION;")
+
 		for _ = range t.Volume {
 			for i, f := range t.Fields {
 				all_bs[i], e = GetBs(f.Bs)
@@ -164,10 +166,13 @@ func main() {
 					os.Exit(1)
 				}
 				if f.Type == TEXT {
-					all_bs[i] = ApoQuote(all_bs[i])
+					// This is not a comprehensive method of escaping stuff in sql
+					// but since it's a dev tool, it's good enough
+					all_bs[i] = ApoQuote(strings.ReplaceAll(all_bs[i], "'", "''"))
 				}
 			}
 			fmt.Printf("INSERT INTO %s (%s) VALUES (%s);\n", t.Name, strings.Join(tf, ","), strings.Join(all_bs, ","))
 		}
+		fmt.Println("COMMIT;")
 	}
 }

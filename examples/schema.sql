@@ -1,6 +1,6 @@
 CREATE TABLE groups ( --bs: low
         id INTEGER NOT NULL PRIMARY KEY,
-        name TEXT NOT NULL --bs:fullname
+        name TEXT NOT NULL --bs: company
 );
 
 CREATE TABLE members ( --bs: low
