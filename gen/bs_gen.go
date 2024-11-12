@@ -47,7 +47,7 @@ func genBasic(sb *strings.Builder) {
 func main() {
 	var sb strings.Builder
 	genBasic(&sb)
-        f, e := os.OpenFile("bs_atoms.go", os.O_CREATE | os.O_RDWR, 0644)
+        f, e := os.OpenFile("bs_atoms.go", os.O_CREATE | os.O_WRONLY | os.O_TRUNC, 0644)
         if e != nil {
                 fmt.Print(e)
         }
