@@ -2,7 +2,8 @@
 
 - The front-end guys complain that they don't really know how the UI's going to look like once more data comes in? 
 - You're creating a backend and you don't know if your SQL queries really return what they are supposed to?
-*Sqlbs* solves that issue by generating a bunch of insert statements based on sql schema comments specifying one of the many predefined collections. Your sample data is always as up to date as your schema. Never again write boilerplate sample data insertions that eventually get desynced from the project. Sqlbs is like fakerjs for sql!
+
+*Sqlbs* solves such issues by generating a bunch of insert statements based on sql schema comments specifying one of the many predefined collections. Your sample data is always as up to date as your schema. Never again write boilerplate sample data insertions that eventually get desynced from the project. Sqlbs is like fakerjs for sql!
 
 ## Getting started
 - The schema for sqlbs needs to be formatted in a way where **CREATE TABLE** and each table column definition is seperated by a newline.
