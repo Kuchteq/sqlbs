@@ -10,20 +10,21 @@ CREATE TABLE members ( --bs: low
         password TEXT NOT NULL --bs: val; 1234
 );
 
-CREATE TABLE member_groups ( --bs: low
+CREATE TABLE member_groups ( --bs: medium
         group_id INTEGER NOT NULL, --bs: rel
         member_id INTEGER NOT NULL, --bs: rel
         PRIMARY KEY (group_id, member_id),
         FOREIGN KEY (group_id) REFERENCES groups (id),
         FOREIGN KEY (member_id) REFERENCES members (id)
 );
-CREATE TABLE items ( --bs: low
+CREATE TABLE items ( --bs: medium
         id INTEGER PRIMARY KEY NOT NULL,
         timestamp INTEGER NOT NULL, --bs: timestamp_epoch
         name TEXT NOT NULL, --bs: product
         price REAL NOT NULL, --bs: num; 1to200
         author_id INTEGER NOT NULL, --bs: rel
         group_id INTEGER NOT NULL, --bs: rel
+        reimbursement BOOLEAN DEFAULT 0, --bs: bool; 0.5
         FOREIGN KEY (group_id) REFERENCES groups (id),
         FOREIGN KEY (author_id) REFERENCES members (id)
 );

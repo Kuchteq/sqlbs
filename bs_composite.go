@@ -29,4 +29,15 @@ var bs_composite = map[string]func(bs Bs) (string, error){
 		r := fmt.Sprintf("%s %s", bsa["first_name"][r_0], bsa["last_name"][r_1])
 		return r, nil
 	},
+	"bool": func(bs Bs) (string, error) {
+                factor := 0.5
+                if len(bs.Args) > 1 {
+                        factor, _ = strconv.ParseFloat(bs.Args[1], 64)
+                }
+                r := "FALSE"
+                if rand.Float64() < factor {
+                        r = "TRUE"
+                }
+		return r, nil
+	},
 }
